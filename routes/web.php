@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//トップページ
+Route::get('/', 'TopController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('books', 'App\Http\Controllers\BookController@index')->name('books.index');
