@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('book_authors', function (Blueprint $table) {
+        Schema::create('author_books', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('book_id');
             $table->timestamps();
 
-            $table->foreign('book_id')->references('id')->on('books');
             $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('book_id')->references('id')->on('books');
 
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_authors');
+        Schema::dropIfExists('author_books');
     }
 };

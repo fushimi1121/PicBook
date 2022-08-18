@@ -14,6 +14,8 @@ use App\Http\Controllers\BookController;
 |
 */
 //トップページ
-Route::get('/', 'TopController@index');
+Route::get('/', 'App\Http\Controllers\TopicController@index')->name('topic.index');;
 
 Route::get('books', 'App\Http\Controllers\BookController@index')->name('books.index');
+Route::get('books/{book}', 'App\Http\Controllers\BookController@show')->name('books.show');
+
