@@ -72,27 +72,46 @@
                 </div>
                 <hr>
                 <div class="m-3">
-                    <h5>レビュー</h5>
+                    <h5>感想をお聞かせください</h5>
                     <div>
-                        <div id="rating">
-                            <i class="fa fa-star active">★</i>
-                            <i class="fa fa-star-o">★</i>
-                            <i class="fa fa-star-o">★</i>
-                            <i class="fa fa-star-o">★</i>
-                            <i class="fa fa-star-o">★</i>
-                        </div>
-                        <form>
+                        <form method="POST" action="route('book.review.store', ['id'=>{{ $book->id }}]);">
+                            @csrf
                             <div class="mb-3 form-floating">
-                                <input class="form-control" id="review-title">
-                                <label for="review-title">レビュータイトルをご記入ください</label>
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="evaluation">
+                                    <option selected>---</option>
+                                    <option value="1">★</option>
+                                    <option value="2">★★</option>
+                                    <option value="3">★★★</option>
+                                    <option value="4">★★★★</option>
+                                    <option value="5">★★★★★</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <input class="form-control" id="review-title" name="title">
+                                <label for="review-title">レビュータイトル</label>
                                 <div class="form-text"></div>
                             </div>
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                <label for="floatingTextarea2">この本に関するレビュー</label>
+                            <div class="mb-3 form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="article"></textarea>
+                                <label for="floatingTextarea2">レビュー本文</label>
                             </div>
-                            <div class="form-floating">
-                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <div class="mb-3 form-floating">
+                                <input class="form-control" id="review-title" name="name">
+                                <label for="review-title">ニックネーム</label>
+                                <div class="form-text"></div>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="age_number">
+                                    <option selected>---</option>
+                                    <option value="1">20代</option>
+                                    <option value="2">30代</option>
+                                    <option value="3">40代</option>
+                                    <option value="4">50代</option>
+                                    <option value="5">60代以上</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="relationship_number">
                                     <option selected>---</option>
                                     <option value="1">母</option>
                                     <option value="2">父</option>
@@ -100,11 +119,24 @@
                                     <option value="4">祖母</option>
                                     <option value="5">親戚</option>
                                 </select>
-                                <label for="floatingSelect">お子様とのご関係をお選びください</label>
+                                <label for="floatingSelect">お子様とのご関係</label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">投稿</button>
                         </form>
                     </div>
+                </div>
+                <div>
+                    @foreach($reviews as $review)
+                        <div class="offset-md-5 col-md-5">
+                            <p>{{$review->evaluation}}</p>
+                            <p>{{$review->title}}</p>
+                            <p>{{$review->article}}</p>
+                            <p>{{$review->name}}</p>
+                            <p>{{$review->age_number}}</p>
+                            <p>{{$review->relationship_number}}</p>
+                            <label>{{$review->created_at}}</label>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

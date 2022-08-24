@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +13,11 @@ use App\Http\Controllers\BookController;
 |
 */
 //トップページ
-Route::get('/', 'App\Http\Controllers\TopicController@index')->name('topic.index');;
+Route::get('/', 'App\Http\Controllers\SearchController@index')->name('search.index');
 
 Route::get('books', 'App\Http\Controllers\BookController@index')->name('books.index');
-Route::get('books/{book}', 'App\Http\Controllers\BookController@show')->name('books.show');
 
+Route::get('books/{book}', 'App\Http\Controllers\BookController@show')->name('books.show');
+Route::get('books/{book}/reviews','App\Http\Controllers\ReviewController@store')->name('book.review.store');
+
+Route::get('{genre}/books','App\Http\Controllers\GenreController@index');

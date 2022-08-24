@@ -10,7 +10,6 @@ class TopicController extends Controller
 {
     public function index()
     {
-        $topics = Topic::orderBy('created_at', 'asc')->take(5)->get();
-        return view('top.index',compact('topics'));
+
     }
 }
