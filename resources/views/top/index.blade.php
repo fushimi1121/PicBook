@@ -1,18 +1,17 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="row row-cols-2">
+        <div class="row row-cols-2" id="learn-theme">
             <h2>与えたい学びのテーマから探す</h2>
             <div class="container" style="width: 100%">
                 <div class="row g-2">
                     @foreach($genres as $genre)
                         <div class="col-6">
                             <div class="p-3 border bg-light">
-                                <a href="{{route()}}">
                                     <img src="{{ asset('img/icon_img/'.$genre->icon_img) }}">
-                                    <div class>
-                                        {{$genre->name}}
-                                    </div>
+                                    <h6 class>{{$genre->name}}</h6>
+                                <a href="{{route('genres.show', ['genre' => $genre->id])}}">
+                                    <button class="btn btn-outline-secondary">絵本を探す</button>
                                 </a>
                             </div>
                         </div>
@@ -23,7 +22,7 @@
     </div>
     <hr>
     <div class="container mt-4">
-        <div class="row w-100">
+        <div class="row w-100" id="life-event">
             <h2>成長に応じた絵本を探す</h2>
             <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
@@ -46,7 +45,7 @@
     </div>
     <hr>
     <div class="container mt-4">
-        <div class="row w-100" >
+        <div class="row w-100" id="hot-news">
             <h2>話題のニュースから探す</h2>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 50%; text-align: center;">
                 <div class="carousel-indicators">
@@ -102,8 +101,8 @@
     </div>
     <hr>
     <div class="container mt-4">
-        <div class="row w-100">
-            <h2>新着記事一覧</h2>
+        <div class="row w-100"　id="column">
+            <h2>絵本に関するコラムを読む</h2>
             <p>//＠foreachで記事をスライドショー予定</p>
             <div style="align-items: center;">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width: 40%; text-align: center;">

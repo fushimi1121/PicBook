@@ -7,8 +7,9 @@ use App\Models\Genre;
 
 class GenreController extends Controller
 {
-    public function show(Genre $genre)
+    public function show(int $id)
     {
-        return view('genre.show')
+        $genre = Genre::with(['small_genres'])->find($id);
+        return view('genres.show',compact('genre'));
     }
 }

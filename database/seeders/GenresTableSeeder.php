@@ -16,23 +16,23 @@ class GenresTableSeeder extends Seeder
     public function run()
     {
         Genre::Create([
-            'name' => '探究と科学',
-            'introduction' => '物事の仕組みや成り立ちに好奇心を抱き、解明しようとする探究心を育みます。',
+            'name' => 'SCIENCE-科学の入口-',
+            'introduction' => '世界の不思議に首を傾げ、物事の仕組みや成り立ちにワクワクしよう。',
             'icon_img' => 'dummy1.png'
         ]);
         Genre::Create([
-            'name' => '歴史と文化',
-            'introduction' => '過去から現在にかけての過程と、生み出された習慣への関心を育みます。',
+            'name' => 'CULTURE-異文化との出会い-',
+            'introduction' => '世界各地で、これまで人々が歩んだ歴史と培われた文化の違いを楽しもう。',
             'icon_img' => 'dummy2.png'
         ]);
         Genre::Create([
-            'name' => '表現と創造',
-            'introduction' => '五感を使っていろんなものを感じ、また自在に表現する喜びを育みます。',
+            'name' => 'CREATIVITY-表現する喜び-',
+            'introduction' => '個性豊かなキャラクターや絵本ならではの表現力に',
             'icon_img' => 'dummy3.png'
         ]);
         Genre::Create([
-            'name' => '関係と社会',
-            'introduction' => '社会生活を歩む上で生じる人と人との関わりや、人間社会の成り立ちを学びます。',
+            'name' => 'SOCIAL-人との関わり-',
+            'introduction' => '人と人との助け合いが',
             'icon_img' => 'dummy4.png'
         ]);
         Genre::Create([
