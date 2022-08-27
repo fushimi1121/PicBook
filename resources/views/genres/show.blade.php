@@ -11,9 +11,14 @@
         <hr>
         <div class="container mt-4">
         <h5>更に細かいテーマから探す</h5>
-            @foreach($genre->small_genres as $small_genre)
-                <button class="btn btn-outline-secondary">{{$small_genre->name}}</button>
-            @endforeach</td>
+            <form method="POST" name="genre_search">
+                @foreach($genre->small_genres as $small_genre)
+                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" name="genre_toggles[]" value="{{$small_genre->id}}">
+                    <label class="btn btn-outline-primary" for="btn-check-outlined">{{$small_genre->name}}</label>
+                @endforeach
+                <br><button type="submit" class="btn btn-success mt-5">絞り込み</button>
+            </form>
+
 
         </div>
         <hr>

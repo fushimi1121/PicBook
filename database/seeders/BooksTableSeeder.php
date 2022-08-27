@@ -23,7 +23,7 @@ class BooksTableSeeder extends Seeder
             'isbn_13' => '9784894232105',
             'released_at' => '1999/02/01',
             'age' => '４〜５歳',
-            'cover_img' => '350_Ehon_182',
+            'cover_img' => 'dummy',
         ]);
 
         Book::create([
@@ -34,7 +34,7 @@ class BooksTableSeeder extends Seeder
             'isbn_13' => '9784894230927',
             'released_at' => '1994/09/01',
             'age' => '４〜５歳',
-            'cover_img' => '100_Ehon_123',
+            'cover_img' => 'dummy2',
         ]);
     }
 }

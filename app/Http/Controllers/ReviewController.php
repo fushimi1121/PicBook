@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\Book;
-use Illuminate\Http\Request;
-
-use function PHPUnit\Framework\directoryExists;
+use App\Http\Requests\CreateReviewRequest;
 
 class ReviewController extends Controller
 {
 
-     public function store(Request $request, int $id)
+    public function create(CreateReviewRequest $request)
     {
-        $book = Book::find($id);
+        $book = Book::find($request->post('id'));
+        $evaluation = $request->post('evaluation');
+
+        if (is_null($book)) {
+            abort(404);
+        }
 
         $review = new Review();
         $review->book_id = $book->id;

@@ -28,11 +28,11 @@
                 <div class="accordion-item">
                     @foreach($events as $event)
                         <h5 class="accordion-header" id="panelsStayOpen-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne-{{ $event->id }}" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
                                 {{$event->name}}
                             </button>
                         </h5>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                        <div id="panelsStayOpen-collapseOne-{{ $event->id }}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                             <div class="accordion-body">
                                 <img src="{{ asset('img/icon_img/'.$event->icon_img )}}">
                                 <p>{{$event->summary}}</p>

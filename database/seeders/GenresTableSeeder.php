@@ -16,34 +16,34 @@ class GenresTableSeeder extends Seeder
     public function run()
     {
         Genre::Create([
-            'name' => 'SCIENCE-科学の入口-',
-            'introduction' => '世界の不思議に首を傾げ、物事の仕組みや成り立ちにワクワクしよう。',
-            'icon_img' => 'dummy1.png'
+            'name' => 'SCIENCE-科学の世界を探究する-',
+            'introduction' => '世界の不思議に驚き、その仕組みや成り立ちにワクワクしよう。',
+            'icon_img' => 'dummy001.png'
         ]);
         Genre::Create([
-            'name' => 'CULTURE-異文化との出会い-',
-            'introduction' => '世界各地で、これまで人々が歩んだ歴史と培われた文化の違いを楽しもう。',
-            'icon_img' => 'dummy2.png'
+            'name' => 'CULTURE-異文化との出逢い',
+            'introduction' => '違う言語、違う服、違うご飯。いろんな違いを発見して楽しもう。',
+            'icon_img' => 'dummy002.png'
         ]);
         Genre::Create([
-            'name' => 'CREATIVITY-表現する喜び-',
-            'introduction' => '個性豊かなキャラクターや絵本ならではの表現力に',
-            'icon_img' => 'dummy3.png'
+            'name' => 'CREATIVITY-想像力がグングン伸びる-',
+            'introduction' => '個性豊かなキャラクターや絵本ならではの表現力を存分に楽しもう',
+            'icon_img' => 'dummy003.png'
         ]);
         Genre::Create([
-            'name' => 'SOCIAL-人との関わり-',
-            'introduction' => '人と人との助け合いが',
-            'icon_img' => 'dummy4.png'
+            'name' => 'COMMUNICATE-心と心の触れ合い',
+            'introduction' => '協力すると、いつもよりたのしいのってなんでだろう。',
+            'icon_img' => 'dummy004.png'
         ]);
         Genre::Create([
-            'name' => '政治と経済',
-            'introduction' => '社会を動かす政治への参加意識やお金・経済への関心を育みます。',
-            'icon_img' => 'dummy5.png'
+            'name' => 'ECONOMY-お金の流れを考える-',
+            'introduction' => 'お金ってなんだろう、経済ってなんだろう、お金の不思議を探究しよう。',
+            'icon_img' => 'dummy005.png'
         ]);
         Genre::Create([
-            'name' => '性と死生',
-            'introduction' => 'ジェンダー・セクシャリティにまつわる関心と生き方について考えるきっかけを与えます。',
-            'icon_img' => 'dummy6.png'
+            'name' => 'SUSTAINABLE-持続可能な社会を築く-',
+            'introduction' => 'この美しい世界を、未来まで残すためにどんなことができるだろう',
+            'icon_img' => 'dummy006.png'
     ]);
     }
 }

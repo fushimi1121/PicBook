@@ -74,10 +74,10 @@
                 <div class="m-3">
                     <h5>感想をお聞かせください</h5>
                     <div>
-                        <form method="POST" action="route('book.review.store', ['id'=>{{ $book->id }}]);">
+                        <form method="POST" action="{{route('book.reviews.create')}}">
                             @csrf
                             <div class="mb-3 form-floating">
-                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="evaluation">
+                                <select class="form-select" id="floatingSelect" name="evaluation" required>
                                     <option selected>---</option>
                                     <option value="1">★</option>
                                     <option value="2">★★</option>
@@ -121,6 +121,7 @@
                                 </select>
                                 <label for="floatingSelect">お子様とのご関係</label>
                             </div>
+                            <input type="hidden" value="{{ $book->id }}" name="id">
                             <button type="submit" class="btn btn-primary">投稿</button>
                         </form>
                     </div>
