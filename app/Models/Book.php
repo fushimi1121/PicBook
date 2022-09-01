@@ -23,4 +23,9 @@ class Book extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function booksmallGenres()
+    {
+        return $this->belongsToMany(Small_genre::class, 'book_small_genres', 'book_id', 'small_genre_id');
+    }
+
 }

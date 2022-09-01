@@ -11,38 +11,42 @@
         <hr>
         <div class="container mt-4">
         <h5>更に細かいテーマから探す</h5>
-            <form method="POST" name="genre_search">
+            <form method="GET" action="{{ route('genres.show',$genre->id) }}">
                 @foreach($genre->small_genres as $small_genre)
-                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" name="genre_toggles[]" value="{{$small_genre->id}}">
-                    <label class="btn btn-outline-primary" for="btn-check-outlined">{{$small_genre->name}}</label>
+                    <input type="checkbox" class="btn-check" id="small-genre-btn-{{ $small_genre->id }}" name="smallGenreIds[]" value="{{ $small_genre->id }}">
+                    <label class="btn btn-outline-primary" for="small-genre-btn-{{ $small_genre->id }}">{{ $small_genre->name }}</label>
                 @endforeach
-                <br><button type="submit" class="btn btn-success mt-5">絞り込み</button>
+                <br>
+                    <button type="submit" class="btn btn-success mt-5">絞り込み</button>
             </form>
-
-
         </div>
         <hr>
         <div class="container mt-4">
             <div class="row w-100">
-                <div class="col-3">
-                    <a href="#">
-                        <img src="#" class="img-thumbnail">
-                    </a>
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="mt-2">
-                                title<br>
-                                <label>
-
-                                </label><br>
-                                <label>
-                                    name<br>
-                                </label>
-                            </p>
-                            <button type="button" class="btn btn-outline-secondary">カテゴリ</button>
+                @foreach($books as $book)
+                    <div class="col-3">
+                        <a href="#">
+                            <img src="{{ asset('img/book/'.$book->cover_img ) }}" class="img-thumbnail">
+                        </a>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="mt-2">
+                                    {{ $book->title }}<br>
+                                    <label>
+                                    </label><br>
+                                    <label>
+                                        @foreach($book->authors as $author)
+                                            {{ $author->name }}<br>
+                                        @endforeach
+                                    </label>
+                                    <label>
+                                        {{$book->publisher->name}}<br>
+                                    </label>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </main>
