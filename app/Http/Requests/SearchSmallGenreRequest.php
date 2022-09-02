@@ -25,7 +25,7 @@ class SearchSmallGenreRequest extends FormRequest
     {
         return [
             'smallGenreIds' => 'nullable|array',
-            'smallGenreIds.*' => 'nullable|integer|exist:small_genres.id'
+            'smallGenreIds.*' => 'nullable|integer|exists:small_genres.id'
         ];
     }
 }

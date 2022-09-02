@@ -18,14 +18,19 @@ class Book extends Model
         return $this->belongsTo(Publisher::class);
     }
 
-    public function  reviews()
+    public function reviews()
     {
         return $this->hasMany(Review::class);
     }
 
-    public function booksmallGenres()
+    public function smallGenres()
     {
         return $this->belongsToMany(Small_genre::class, 'book_small_genres', 'book_id', 'small_genre_id');
+    }
+
+    public function smallEvents()
+    {
+        return $this->belongsToMany(SmallEvent::class, 'book_small_events', 'book_id', 'small_event_id');
     }
 
 }
