@@ -11,6 +11,6 @@ class Event extends Model
 
     public function small_events()
     {
-        return $this->hasMany(Small_event::class);
+        return $this->hasMany(SmallEvent::class);
     }
 }

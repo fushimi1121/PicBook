@@ -36,6 +36,9 @@
                             <div class="accordion-body">
                                 <img src="{{ asset('img/icon_img/'.$event->icon_img )}}">
                                 <p>{{$event->summary}}</p>
+                                <a href="{{route('events.show', ['event' => $event->id])}}">
+                                    <button class="btn btn-outline-secondary">絵本を探す</button>
+                                </a>
                             </div>
                         </div>
                     @endforeach

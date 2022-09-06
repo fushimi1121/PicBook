@@ -4,7 +4,7 @@
         <div class="row w-100">
             @foreach($books as $book)
                 <div class="col-3">
-                    <a href="#"><!--絵本詳細ページへのリンク-->
+                    <a href=""><!--絵本詳細ページへのリンク-->
                         <img src="{{ asset('img/book/'.$book->cover_img)}}" class="img-thumbnail">
                     </a>
                     <div class="row">

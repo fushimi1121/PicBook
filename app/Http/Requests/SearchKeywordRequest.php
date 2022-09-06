@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateReviewRequest extends FormRequest
+class SearchKeywordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class CreateReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|integer',
-            'evaluation' => 'required|integer|between:1,5',
+            'keyword' => 'required',
+            'keyword.*' => 'required'
         ];
     }
 }

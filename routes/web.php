@@ -12,11 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//ヘッダー
+
+
 //トップページ
 Route::get('/', 'App\Http\Controllers\SearchController@index')->name('search.index');
 
-Route::get('books', 'App\Http\Controllers\BookController@index')->name('books.index');
+Route::get('books', 'App\Http\Controllers\KeywordSearchController@index')->name('keywordSearch.index');
 Route::get('books/{id}', 'App\Http\Controllers\BookController@show')->name('books.show');
 Route::post('books/reviews/create','App\Http\Controllers\ReviewController@create')->name('book.reviews.create');
 
-Route::get('{genre}','App\Http\Controllers\GenreController@show')->name('genres.show');
+Route::get('genre/{genre}','App\Http\Controllers\GenreController@show')->name('genres.show');
+
+Route::get('event/{event}','App\Http\Controllers\EventController@show')->name('events.show');
