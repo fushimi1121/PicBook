@@ -23,7 +23,7 @@ class EventController extends Controller
             ->with(['authors','publisher'])
             ->join('book_small_events', 'books.id', '=', 'book_small_events.book_id')
             ->join('small_events', 'book_small_events.small_event_id', '=', 'small_events.id')
-            ->whereIN('small_event_id', $smallEventIds)
+            ->whereIn('small_event_id', $smallEventIds)
             ->select('books.*')
             ->distinct()
             ->get();

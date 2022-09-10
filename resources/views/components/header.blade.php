@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">PicBook</a>
+        <a class="navbar-brand" href="{{ route('search.index')}} ">PicBook</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#learn-theme">学びのテーマから探す</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('search.index')}}#learn-theme">学びのテーマから探す</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#life-event">成長段階に合った絵本から探す</a>
+                    <a class="nav-link" href="{{ route('search.index')}}#life-event">成長段階に合った絵本から探す</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#hot-news" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{{ route('search.index')}}#hot-news" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         話題のニューステーマから探す
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="column" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href={{ route('search.index')}}"column" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         コラムを読む
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,7 +36,7 @@
                 </li>
             </ul>
             <form class="d-flex" action="{{ route('keywordSearch.index') }}" method="GET">
-                <input class="form-control me-2" type="search" placeholder="キーワードを入力" aria-label="Search" name="keyword[]">
+                <input class="form-control me-2" type="text" placeholder="キーワードを入力" aria-label="Search" name="keyword">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>

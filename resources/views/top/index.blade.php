@@ -10,7 +10,7 @@
                             <div class="p-3 border bg-light">
                                     <img src="{{ asset('img/icon_img/'.$genre->icon_img) }}">
                                     <h6 class>{{$genre->name}}</h6>
-                                <a href="{{route('genres.show', ['genre' => $genre->id])}}">
+                                <a href="{{route('genres.show',$genre->id)}}">
                                     <button class="btn btn-outline-secondary">絵本を探す</button>
                                 </a>
                             </div>
@@ -36,7 +36,7 @@
                             <div class="accordion-body">
                                 <img src="{{ asset('img/icon_img/'.$event->icon_img )}}">
                                 <p>{{$event->summary}}</p>
-                                <a href="{{route('events.show', ['event' => $event->id])}}">
+                                <a href="{{route('events.show',$event->id)}}">
                                     <button class="btn btn-outline-secondary">絵本を探す</button>
                                 </a>
                             </div>
@@ -120,7 +120,9 @@
                                 <img src="{{ asset('img/banner/'.$topic->img) }}" class="d-block w-100" alt="{{$topic->title}}">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>{{$topic->title}}</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
+                                    <a href="{{ route('topics.show',$topic->id) }}">
+                                        <p>コラムを読む</p>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

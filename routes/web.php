@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 //ヘッダー
 
-
 //トップページ
 Route::get('/', 'App\Http\Controllers\SearchController@index')->name('search.index');
 
@@ -22,6 +21,7 @@ Route::get('books', 'App\Http\Controllers\KeywordSearchController@index')->name(
 Route::get('books/{id}', 'App\Http\Controllers\BookController@show')->name('books.show');
 Route::post('books/reviews/create','App\Http\Controllers\ReviewController@create')->name('book.reviews.create');
 
-Route::get('genre/{genre}','App\Http\Controllers\GenreController@show')->name('genres.show');
+Route::get('genres/{id}','App\Http\Controllers\GenreController@show')->name('genres.show');
 
-Route::get('event/{event}','App\Http\Controllers\EventController@show')->name('events.show');
+Route::get('event/{id}','App\Http\Controllers\EventController@show')->name('events.show');
+Route::get('topic/{id}','App\Http\Controllers\TopicController@show')->name('topics.show');

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SmallEvent extends Model
 {
+    protected $table = 'small_events';
     use HasFactory;
     public function event()
     {

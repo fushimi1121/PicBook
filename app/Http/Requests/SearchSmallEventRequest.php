@@ -25,7 +25,7 @@ class SearchSmallEventRequest extends FormRequest
     {
         return [
             'smallEventIds' => 'nullable|array',
-            'smallEventIds.*' => 'nullable|integer|exists:small_event.id'
+            'smallEventIds.*' => 'nullable|integer|exists:small_events,id'
         ];
     }
 }
