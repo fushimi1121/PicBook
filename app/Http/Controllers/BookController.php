@@ -15,12 +15,11 @@ class BookController extends Controller
 
     public function show(int $id)
     {
-        $book = Book::find($id);
+        $book = Book::with(['smallGenres','reviews'])->find($id);
         if(is_null($book)){
             abort(404);
         }
-        $reviews = $book->reviews()->get();
 
-        return view('books.show', compact('book', 'reviews'));
+        return view('books.show', compact('book'));
     }
 }

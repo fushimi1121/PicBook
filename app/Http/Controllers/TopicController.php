@@ -11,6 +11,21 @@ use Illuminate\Contracts\Foundation\Application;
 class TopicController extends Controller
 {
     /**
+     *
+     * @return Application|Factory|View
+     */
+    public function index():Application|Factory|View
+    {
+        $topics = Topic::query()
+            ->orderBy('created_at','asc')
+            ->get();
+        return view('topics.index', compact('topics'));
+    }
+
+
+
+
+    /**
      * Topページから各コラムを開く＆関連する書籍一覧を開く
      * @param int $id
      * @return Application|Factory|View

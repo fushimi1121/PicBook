@@ -1,0 +1,42 @@
+.search_container{
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    height: 2.2em;
+    width: 250px;
+    overflow: hidden;
+    background: #F5C332;
+}
+.search_container input[type="text"]{
+    border: none;
+    height: 2.0em;
+    background: #F5C332;
+}
+.search_container input[type="text"]:focus {
+    outline: 0;
+}
+.search_container input[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 1.3em;
+    border: none;
+    background: none;
+    color: #231E41;
+    position: absolute;
+    height: 2.5em;
+    right: 8px;
+    top: -10px;
+    outline : none;
+}
+.mb-signature{
+    width: 90%; }
+
+/*絵本詳細ページ内、スターレーティング*/
+
+
+@media (max-width: 768px) {
+    .mb-signature{
+        width: 350px; }
+}

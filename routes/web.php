@@ -24,4 +24,5 @@ Route::post('books/reviews/create','App\Http\Controllers\ReviewController@create
 Route::get('genres/{id}','App\Http\Controllers\GenreController@show')->name('genres.show');
 
 Route::get('event/{id}','App\Http\Controllers\EventController@show')->name('events.show');
+Route::get('topics','App\Http\Controllers\TopicController@index')->name('topics.index');
 Route::get('topic/{id}','App\Http\Controllers\TopicController@show')->name('topics.show');
