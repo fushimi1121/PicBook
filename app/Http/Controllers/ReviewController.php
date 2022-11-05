@@ -31,4 +31,17 @@ class ReviewController extends Controller
         return redirect()->route('books.show', $book);
 
     }
+    public function store(CreateReviewRequest $request)
+    {
+        $validated = $request->validate([
+            'evaluation' => 'required|between:1,5',
+            'title' => 'required|max:15',
+            'article' => 'required|max:150',
+            'name' => 'required',
+            'age_number' => 'required|between:1,7',
+            'relationship_number' => 'required|between:1,7'
+        ]);
+
+        // ブログポストは有効
+    }
 }
