@@ -11,6 +11,7 @@
                 <h6 class="mt-2">ー全記事ー</h6>
                 <p class="mt-3">絵本や教育に関する記事をご用意。</p>
             </div>
+            <hr>
             <div class="row ">
                 @foreach($topics as $topic)
                     <div class="col-lg-4">
@@ -18,7 +19,7 @@
                             <div class="swiper-slide">
                                 <a href="{{route('events.show',$topic->id)}}" class="sb-blog-card sb-mb-30">
                                     <div class="sb-cover-frame sb-mb-30">
-                                        <img src="{{ asset('img/banner/'.$topic->img )}}" alt="{{$topic->name}}">
+                                        <img src="{{ env('AWS_BUCKET').$topic->img}}" alt="{{$topic->title}}">
                                     </div>
                                     <div class="sb-blog-card-descr">
                                         <h3 class="sb-mb-10">{{$topic->title}}</h3>

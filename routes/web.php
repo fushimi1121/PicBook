@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //トップページ
 Route::get('/', 'App\Http\Controllers\SearchController@index')->name('search.index');
+Route::view('about', 'about')->name('about');
 
 Route::get('books', 'App\Http\Controllers\KeywordSearchController@index')->name('keywordSearch.index');
 Route::get('books/{id}', 'App\Http\Controllers\BookController@show')->name('books.show');

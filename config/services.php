@@ -30,5 +30,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    // instagramAPIの追加
+    'instagram' => [
+        'business_id' => env('INSTAGRAM_BUSINESS_ID'),
+        'access_token' => env('INSTAGRAM_ACCESS_TOKEN'),
+    ]
 
 ];

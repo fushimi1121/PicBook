@@ -34,7 +34,7 @@ class Book extends Model
      */
     public function reviews():HasMany
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class)->orderByDesc('id');
     }
 
     /**
@@ -60,4 +60,11 @@ class Book extends Model
     {
         return $this->belongsToMany(Topic::class, 'topic', 'book_id', 'book_topic_id');
     }
+
+    public  function images():HasMany
+    {
+        return $this->hasMany(Image::class);
+    }
+
+
 }

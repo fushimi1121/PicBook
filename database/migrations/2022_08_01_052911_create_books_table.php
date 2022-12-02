@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('publisher_id'); //外部キー
             $table->string('title');
-            $table->text('body');
-            $table->unsignedInteger('price'); //負の値にならないように
-            $table->unsignedBigInteger('isbn_13'); //数値が13桁である制約
-            $table->date('released_at');
-            $table->string('age');
-            $table->string('cover_img');
+            $table->text('body')->nullable();
+            $table->unsignedInteger('price')->nullable(); //負の値にならないように
+            $table->unsignedBigInteger('isbn_13')->nullable(); //数値が13桁である制約
+            $table->date('released_at')->nullable();
+            $table->string('age')->nullable();
+            $table->string('cover_img')->nullable();
             $table->timestamps();
+
 
             $table->foreign('publisher_id')->references('id')->on('publishers');
         });

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('age_number');
             //↑config配下のファイルに選択肢を記載
             $table->integer('relationship_number');
+            $table->integer('prefecture_number');
             //↑config配下のファイルに選択肢を記載
             $table->timestamps();
 

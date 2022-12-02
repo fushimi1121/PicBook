@@ -28,11 +28,11 @@ class SmallEventsTableSeeder extends Seeder
             'name' => 'ねんね'
         ]);
         SmallEvent::Create([
-            'event_id' => 2,
+            'event_id' => 1,
             'name' => '歩きはじめ'
         ]);
         SmallEvent::Create([
-            'event_id' => 2,
+            'event_id' => 1,
             'name' => 'からだをうごかす'
         ]);
         SmallEvent::Create([
@@ -40,63 +40,63 @@ class SmallEventsTableSeeder extends Seeder
             'name' => 'おしゃべり'
         ]);
         SmallEvent::Create([
-            'event_id' => 3,
+            'event_id' => 2,
             'name' => 'ものの認識'
         ]);
         SmallEvent::Create([
-            'event_id' => 3,
+            'event_id' => 2,
             'name' => 'いやいや'
         ]);
         SmallEvent::Create([
-            'event_id' => 3,
+            'event_id' => 2,
             'name' => 'じゅんばんこ'
         ]);
         SmallEvent::Create([
-            'event_id' => 4,
+            'event_id' => 3,
             'name' => 'おともだち'
         ]);
         SmallEvent::Create([
-            'event_id' => 4,
+            'event_id' => 3,
             'name' => '好き嫌い'
         ]);
         SmallEvent::Create([
-            'event_id' => 4,
+            'event_id' => 3,
             'name' => '物語を楽しむ'
         ]);
         SmallEvent::Create([
-            'event_id' => 5,
+            'event_id' => 3,
             'name' => 'お兄ちゃん'
         ]);
         SmallEvent::Create([
-            'event_id' => 5,
+            'event_id' => 4,
             'name' => 'がまん'
         ]);
         SmallEvent::Create([
-            'event_id' => 5,
+            'event_id' => 4,
             'name' => 'やってみよう'
         ]);
         SmallEvent::Create([
-            'event_id' => 6,
+            'event_id' => 4,
             'name' => '思いやり'
         ]);
         SmallEvent::Create([
-            'event_id' => 6,
+            'event_id' => 4,
             'name' => 'ことば遊び'
         ]);
         SmallEvent::Create([
-            'event_id' => 6,
+            'event_id' => 4,
             'name' => 'お世話'
         ]);
         SmallEvent::Create([
-            'event_id' => 7,
+            'event_id' => 4,
             'name' => '学校へ行こう'
         ]);
         SmallEvent::Create([
-            'event_id' => 7,
+            'event_id' => 4,
             'name' => 'ともだちづくり'
         ]);
         SmallEvent::Create([
-            'event_id' => 7,
+            'event_id' => 4,
             'name' => '文字をよもう'
         ]);
     }

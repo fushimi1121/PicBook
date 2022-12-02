@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('genres', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name_en');
+            $table->string('name_ja');
+            $table->text('summary');
             $table->text('introduction');
             $table->string('icon_img');
+            $table->string('image');
             $table->timestamps();
         });
     }

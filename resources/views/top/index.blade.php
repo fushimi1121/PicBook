@@ -1,21 +1,145 @@
-@extends('layouts.app')
-@section('content')
-    <!-- app wrapper -->
-    <!-- preloader -->
-
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- color of address bar in mobile browser -->
+    <meta name="theme-color" content="#F5C332">
+    <!-- favicon  -->
+    <link rel="shortcut icon" href="{{asset('img/ui/manabook_favicon.png')}}" type="image/x-icon">
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="{{asset('css/plugins/font-awesome.min.css')}}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{{asset('css/plugins/bootstrap.min.css')}}">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="{{asset('css/plugins/swiper.min.css')}}">
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="{{asset('css/plugins/datepicker.css')}}">
+    <!-- mapbox css -->
+    <link href="{{asset('css/plugins/mapbox-style.css')}}" rel='stylesheet'>
+    <!-- fancybox css -->
+    <link rel="stylesheet" href="{{asset('css/plugins/fancybox.min.css')}}">
+    <!-- Manabook css -->
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- additional styles css -->
+    <link rel="stylesheet" href="{{asset('css/add_style.css?ver=1.0.1')}}">
+    <!-- page title -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Manabook</title>
+</head>
+<body>
+<div class="sb-app">
+    <div class="sb-preloader">
+        <div class="sb-preloader-bg"></div>
+        <div class="sb-preloader-body">
+            <div class="sb-loading">
+                <div class="sb-percent"><span class="sb-preloader-number" data-count="101">00</span><span>%</span></div>
+            </div>
+            <div class="sb-loading-bar">
+                <div class="sb-bar"></div>
+            </div>
+        </div>
+    </div>
     <!-- preloader end -->
     <!-- click effect -->
-
+    <div class="sb-click-effect"></div>
     <!-- loader -->
-
-    <!-- top bar -->
-
-    <!-- top bar end -->
-
+    <div class="sb-load"></div>
+    <div class="sb-top-bar-frame">
+        <div class="sb-top-bar-bg"></div>
+        <div class="container">
+            <div class="sb-top-bar">
+                <a href="{{route('search.index')}}" class="sb-logo-frame">
+                    <!-- logo img -->
+                    <img src="{{asset('img\ui\manabook_logo.png')}}" alt="ManaBook">
+                </a>
+                <!-- menu -->
+                <div class="sb-right-side">
+                    <nav id="sb-dynamic-menu" class="sb-menu-transition">
+                        <ul class="sb-navigation">
+                            <li class="sb-active sb-has-children">
+                                <a href="{{ route('search.index')}} #genre">ジャンルで探す</a>
+                            </li>
+                            <li class="sb-has-children">
+                                <a href="{{ route('search.index')}} #Growth">年齢で探す</a>
+                            </li>
+                            <li class="sb-has-children">
+                                <a href="{{ route('search.index')}} #columns">コラムを読む</a>
+                            </li>
+                            <li class="sb-has-children" style="display: flex; justify-content: center;">
+                                <form method="GET" action="{{ route('keywordSearch.index') }}" class="search_container">
+                                    <input type="text" size="25" placeholder="　キーワード検索" aria-label="Search" name="keyword">
+                                    <input type="submit" value="&#xf002">
+                                </form>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="sb-buttons-frame">
+                        <!-- button -->
+                        <!-- menu btn -->
+                        <div class="sb-menu-btn"><span></span></div>
+                        <!-- info btn -->
+                        <div class="sb-info-btn"><span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- info bar -->
+        <div class="sb-info-bar">
+            <div class="sb-infobar-content">
+                <div class="sb-ib-title-frame sb-mb-30">
+                    <h4>Contact</h4><i class="fas fa-arrow-down"></i>
+                </div>
+                <ul class="sb-list sb-mb-30">
+                    <li><b>Address:</b><span>Montréal, 1510 Rue Sauvé</span></li>
+                    <li><b>Working hours:</b><span>09:00 - 23:00</span></li>
+                    <li><b>Phone:</b><span>+81 03(***)***</span></li>
+                    <li><b>Email:</b><span>info@manabook.online</span></li>
+                </ul>
+                <div class="sb-ib-title-frame sb-mb-30">
+                    <h4>Please Follow Our Instagram</h4>
+                </div>
+                <ul class="sb-instagram sb-mb-30">
+                    @foreach ($instagramItems as $instagramItem)
+                        <li>
+                            <a href="https://www.instagram.com/manabook.online/">
+                                <img src="{{ $instagramItem['img'] }}" alt="{{ $instagramItem['caption'] }}" />
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+                <hr>
+                <div class="sb-ib-title-frame sb-mb-30">
+                    <h4>Latest Columns</h4>
+                </div>
+                @foreach($topics as $topic)
+                    <a href="{{route('topics.show',$topic->id)}}" class="sb-blog-card sb-blog-card-sm sb-mb-30">
+                        <div class="sb-cover-frame">
+                            <img src="{{ env('AWS_BUCKET').$topic->img}}" alt="cover">
+                        </div>
+                        <div class="sb-blog-card-descr">
+                            <h5 class="sb-mb-5">{{$topic->title}}</h5>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+            <div class="sb-info-bar-footer">
+                <ul class="sb-social">
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- app wrapper -->
     <!-- dynamic content -->
     <div id="sb-dynamic-content" class="sb-transition-fade">
         <!-- サービストップバナー　始まり -->
-        <section class="sb-banner sb-banner-sm sb-banner-color" style='background-image: url("{{ asset('img/object/topimage.jpg') }}"); background-position: 50%!important; background-size: cover!important; '>
+        <section class="sb-banner sb-banner-sm sb-banner-color"
+                 style='background-image: url("{{ asset('img/object/topimage.jpg') }}"); background-position: 50%!important; background-size: cover!important; '>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -24,14 +148,20 @@
                             <div class="sb-main-title text-center">
                                 <div class="sb-main-title-frame">
                                     <div class="sb-main-title text-center">
-                                        <img src="{{'img/ui/manabook_logo3.png'}}" alt="manabook" style="width: 70%; margin-bottom: 4px">
+                                        <img src="{{'img/ui/manabook_logo3.png'}}" alt="manabook"
+                                             style="width: 70%; margin-bottom: 4px">
                                         <p class="sb-text">ー最高の絵本が、きっと見つかるー</p>
                                     </div>
                                 </div>
-                                <ul class="sb-breadcrumbs">
-                                    <li><a href="home-1.html">Home</a></li>
-                                    <li><a href="#">About us</a></li>
-                                </ul>
+                                <a href="{{ route('about') }}" class="sb-btn">
+                                    <span class="sb-icon">
+                                        <img src="{{asset('img/ui/manabook_favicon.png')}}" alt="about us">
+                                    </span>
+                                    <span>About Us</span>
+                                </a>
+{{--                                <ul class="sb-breadcrumbs">--}}
+{{--                                    <li><a href="{{ route('about') }}">About us</a></li>--}}
+{{--                                </ul>--}}
                             </div>
                         </div>
                         <!-- main title end -->
@@ -49,7 +179,9 @@
                     <div class="col-lg-6 align-self-center">
                         <div class="sb-illustration-2 sb-mb-90">
                             <div class="sb-interior-frame">
-                                <img src="https://image-select.mamastar.jp/interspace/wp-content/uploads/1591581870-4ecb9ebabde86f9cf1d85f1ed7dcc14d-1200x801.jpg" alt="interior" class="sb-interior" style="object-position: center">
+                                <img
+                                    src="https://image-select.mamastar.jp/interspace/wp-content/uploads/1591581870-4ecb9ebabde86f9cf1d85f1ed7dcc14d-1200x801.jpg"
+                                    alt="interior" class="sb-interior" style="object-position: center">
                             </div>
                             <div class="sb-square"></div>
                             <div class="sb-cirkle-1"></div>
@@ -72,12 +204,17 @@
                             <br>
                             お子様の未来を拓く、お子様に、今、読んでほしい絵本を探しませんか。<br>
                         </p>
-                        <img src="https://thumb.ac-illust.com/c9/c991d8fe84a9c55029871cf40fbdbdb7_t.jpeg" alt="Signature" class="mb-signature sb-mb-30">
+                        <img src="https://thumb.ac-illust.com/c9/c991d8fe84a9c55029871cf40fbdbdb7_t.jpeg"
+                             alt="Signature" class="mb-signature sb-mb-30">
                     </div>
                 </div>
             </div>
-            <button aria-label="次のセクションへスキップする" class="btn border--none border--none bg--transparent color--primary-text hv--primary-accent font-size--l pointer" data-banner-scroll="">
-                <span class="icon-wrapper"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-arrow-down" viewBox="0 0 100 100"><path d="M52.575 76.81V12.586h-5V76.81L24.269 53.504l-3.38 3.381 29.186 29.187 29.186-29.187-3.38-3.38L52.575 76.81z"></path></svg></span>
+            <button aria-label="次のセクションへスキップする"
+                    class="btn border--none border--none bg--transparent color--primary-text hv--primary-accent font-size--l pointer"
+                    data-banner-scroll="">
+                <span class="icon-wrapper"><svg aria-hidden="true" focusable="false" role="presentation"
+                                                class="icon icon-arrow-down" viewBox="0 0 100 100"><path
+                            d="M52.575 76.81V12.586h-5V76.81L24.269 53.504l-3.38 3.381 29.186 29.187 29.186-29.187-3.38-3.38L52.575 76.81z"></path></svg></span>
             </button>
         </section>
         <!-- サービス概要　終わり -->
@@ -94,9 +231,9 @@
                     <div class="sb-right sb-mb-30">
                         <!-- button -->
                         <a href="shop-1.html" class="sb-btn sb-m-0">
-                    <span class="sb-icon">
-                      <img src="img/ui/icons/arrow.svg" alt="icon">
-                    </span>
+                            <span class="sb-icon">
+                                <img src="img/ui/icons/arrow.svg" alt="icon">
+                            </span>
                             <span>What's Education Genre</span>
                         </a>
                         <!-- button end -->
@@ -104,19 +241,20 @@
                 </div>
                 <div class="row">
                     @foreach($genres as $genre)
-                    <div class="col-lg-6">
-                        <a href="{{route('genres.show',$genre->id)}}" class="sb-categorie-card sb-categorie-card-2 sb-mb-30">
-                            <div class="sb-card-body">
-                                <div class="sb-category-icon">
-                                    <img src="{{ asset('img/genre_icon/'.$genre->icon_img) }}">
+                        <div class="col-lg-6">
+                            <a href="{{route('genres.show',$genre->id)}}" class="sb-categorie-card sb-categorie-card-2 sb-mb-30">
+                                <div class="sb-card-body">
+                                    <div class="sb-category-icon">
+                                        <img src="{{ env('AWS_BUCKET').$genre->icon_img}}" alt="{{$genre->icon_img}}">
+                                    </div>
+                                    <div class="sb-card-descr">
+                                        <h3 class="sb-mb-10">{{$genre->name_en}}</h3>
+                                        <h4 class="sb-mb-10">〜{{$genre->name_ja}}〜</h4>
+                                        <p class="sb-text">{{ $genre->summary }}</p>
+                                    </div>
                                 </div>
-                                <div class="sb-card-descr">
-                                    <h3 class="sb-mb-10">{{$genre->name}}</h3>
-                                    <p class="sb-text">{{ $genre->introduction }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -129,26 +267,32 @@
                     <div class="sb-left sb-mb-30">
                         <h2 class="mb-1" id="Growth">Growth Stage</h2>
                         <h6 class="sb-mb-25">ー発達ステージに合わせて探す</h6>
-                        <p class="sb-text">子どもは成長に合わせて色んなことができるようになります。我が子の年齢や発達状況に応じて必要な本をお求めください。</p>
+                        <p class="sb-text">子どもは成長に合わせて色んなことができるようになります。我が子の発達段階に応じて必要な本をお求めください。</p>
                     </div>
                 </div>
                 <div class="row">
                     @foreach($events as $event)
-                        <div class="col-lg-6">
-                            <ul class="sb-faq">
-                                <li>
-                                    <div class="sb-question">
-                                        <h4>{{$event->name}}</h4>
-                                        <span class="sb-plus-minus-toggle sb-collapsed"></span>
-                                    </div>
-                                    <div href="{{route('events.show',$event->id)}}" class="sb-answer sb-text">
-                                        <a href="{{route('events.show',$event->id)}}">
-                                            <img src="{{ asset('img/icon_img/'.$event->icon_img )}}">
+                        <div class="col-lg-3">
+                            <div class="sb-categorie-card sb-mb-30">
+                                <div class="sb-card-body">
+                                    <a class="sb-category-icon" href="{{route('events.show',$event->id)}}">
+                                        <img src="{{ env('AWS_BUCKET').$event->icon_img}}.png" alt="cover">
+                                    </a>
+                                    <div class="sb-card-descr mt-2">
+                                        <h3>{{$event->id}}. {{$event->name}}</h3>
+                                        <br>
+                                        <h5 class="sb-mb-10">< {{$event->supplement}} ></h5>
+                                        <p class="sb-text sb-mb-15">{{$event->summary}}</p>
+                                        <!-- button -->
+                                        <a href="{{route('events.show',$event->id)}}" class="sb-btn sb-btn-2 sb-btn-icon sb-m-0">
+                                            <span class="sb-icon">
+                                                <img src="{{ asset('img/ui/icons/arrow.svg')}}" alt="arrows">
+                                            </span>
                                         </a>
-                                        {{$event->summary}}
+                                        <!-- button end -->
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -188,7 +332,7 @@
                             <div class="swiper-slide">
                                 <a href="{{route('topics.show',$topic->id)}}" class="sb-blog-card sb-mb-30">
                                     <div class="sb-cover-frame sb-mb-30">
-                                        <img src="{{ asset('img/banner/'.$topic->img )}}" alt="{{$topic->name}}">
+                                        <img src="{{ env('AWS_BUCKET').$topic->img}}" alt="{{$topic->title}}">
                                         <div class="sb-badge">Hot</div>
                                     </div>
                                     <div class="sb-blog-card-descr">
@@ -205,56 +349,46 @@
             </div>
         </section>
     </div>
-{{--    <div class="container mt-4">--}}
-{{--        <div class="row w-100"　id="column">--}}
-{{--            <h2>絵本に関するコラムを読む</h2>--}}
-{{--            <p>//＠foreachで記事をスライドショー予定</p>--}}
-{{--            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">--}}
-{{--                <div class="carousel-inner">--}}
-{{--                    @foreach($topics as $topic)--}}
-{{--                    <div class="carousel-item @if($loop->first) active @endif">--}}
-{{--                        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: First slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#555" dy=".3em">Fide</text></svg>--}}{{----}}{{--<img src="{{ asset('img/banner/'.$topic->img) }}" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" alt="{{$topic->title}}" width="800" height="400" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><title>{{$topic->title}}</title>><text x="50%" y="50%" fill="#555" dy=".3em">{{$topic->title}}</text>--}}
-{{--                    </div>--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">--}}
-{{--                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-{{--                    <span class="sr-only">Previous</span>--}}
-{{--                </a>--}}
-{{--                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">--}}
-{{--                    <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-{{--                    <span class="sr-only">Next</span>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--            カルーセル表示--}}
-{{--            <div style="align-items: center;">--}}
-{{--                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width: 40%; text-align: center;">--}}
-{{--                    <div class="carousel-indicators">--}}
-{{--                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>--}}
-{{--                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>--}}
-{{--                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>--}}
-{{--                    </div>--}}
-{{--                    <div class="carousel-inner">--}}
-{{--                        @foreach($topics as $topic)--}}
-{{--                            <div class="carousel-item active">--}}
-{{--                                <img src="{{ asset('img/banner/'.$topic->img) }}" class="d-block w-100" alt="{{$topic->title}}">--}}
-{{--                                <div class="carousel-caption d-none d-md-block">--}}
-{{--                                    <h5>{{$topic->title}}</h5>--}}
-{{--                                    <a href="{{ route('topics.show',$topic->id) }}">--}}
-{{--                                        <p>コラムを読む</p>--}}
-{{--                                    </a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
-{{--                    </div>--}}
-{{--                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">--}}
-{{--                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-{{--                        <span class="visually-hidden">Previous</span>--}}
-{{--                    </button>--}}
-{{--                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">--}}
-{{--                        <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-{{--                        <span class="visually-hidden">Next</span>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--    </div>--}}
-@endsection
+    <footer>
+        <div class="container">
+            <div class="sb-footer-frame">
+                <a href="home-1.html" class="sb-logo-frame">
+                    <!-- logo img -->
+                    <img src="{{asset('img/ui/manabook_logo.png')}}" alt="manabook">
+                </a>
+                <ul class="sb-social">
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                    <li><a href="#."><i class="far fa-circle"></i></a></li>
+                </ul>
+                <div class="sb-copy">&copy; late 2022 Manabook. All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- jquery js -->
+<script src="{{asset('js/plugins/jquery.min.js')}}"></script>
+<!-- smooth scroll js -->
+<script src="{{asset('js/plugins/smooth-scroll.js')}}"></script>
+<!-- swup js -->
+<script src="{{asset('js/plugins/swup.min.js')}}"></script>
+<!-- swiper js -->
+<script src="{{asset('js/plugins/swiper.min.js')}}"></script>
+<!-- datepicker js -->
+<script src="{{asset('js/plugins/datepicker.js')}}"></script>
+<!-- isotope js -->
+<script src="{{asset('js/plugins/isotope.js')}}"></script>
+<!-- sticky -->
+<script src="{{asset('js/plugins/sticky.js')}}"></script>
+<!-- mapbox js -->
+<script src="{{asset('js/plugins/mapbox.min.js')}}"></script>
+<!-- fancybox js -->
+<script src="{{asset('js/plugins/fancybox.min.js')}}"></script>
+<!-- bootstrap4.2 js -->
+<script src="{{asset('js/plugins/bootstrap.min.js')}}"></script>
+<!-- manabook js -->
+<script src="{{asset('js/main.js')}}"></script>
+
+</body>
+</html>

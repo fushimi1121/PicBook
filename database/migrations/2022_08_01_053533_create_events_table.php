@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('supplement');
             $table->text('summary');
             $table->text('introduction');
             $table->string('icon_img');
+            $table->string('img');
             $table->timestamps();
         });
     }

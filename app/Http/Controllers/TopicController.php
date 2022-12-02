@@ -21,10 +21,6 @@ class TopicController extends Controller
             ->get();
         return view('topics.index', compact('topics'));
     }
-
-
-
-
     /**
      * Topページから各コラムを開く＆関連する書籍一覧を開く
      * @param int $id

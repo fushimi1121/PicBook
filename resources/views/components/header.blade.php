@@ -1,47 +1,3 @@
-{{--<nav class="navbar navbar-expand-lg navbar-light bg-light">--}}
-{{--    <div class="container-fluid">--}}
-{{--        <a class="navbar-brand" href="{{ route('search.index')}} ">PicBook</a>--}}
-{{--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--            <span class="navbar-toggler-icon"></span>--}}
-{{--        </button>--}}
-{{--        <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link active" aria-current="page" href="{{ route('search.index')}}#learn-theme">学びのテーマから探す</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('search.index')}}#life-event">成長段階に合った絵本から探す</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item dropdown">--}}
-{{--                    <a class="nav-link dropdown-toggle" href="{{ route('search.index')}}#hot-news" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                        話題のニューステーマから探す--}}
-{{--                    </a>--}}
-{{--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                        <li><a class="dropdown-item" href="#">Action</a></li>--}}
-{{--                        <li><a class="dropdown-item" href="#">Another action</a></li>--}}
-{{--                        <li><hr class="dropdown-divider"></li>--}}
-{{--                        <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link dropdown-toggle" href={{ route('search.index')}}"column" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                        コラムを読む--}}
-{{--                    </a>--}}
-{{--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                        <li><a class="dropdown-item" href="#">Action</a></li>--}}
-{{--                        <li><a class="dropdown-item" href="#">Another action</a></li>--}}
-{{--                        <li><hr class="dropdown-divider"></li>--}}
-{{--                        <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
-{{--            <form class="d-flex" action="{{ route('keywordSearch.index') }}" method="GET">--}}
-{{--                <input class="form-control me-2" type="text" placeholder="キーワードを入力" aria-label="Search" name="keyword">--}}
-{{--                <button class="btn btn-outline-success" type="submit">Search</button>--}}
-{{--            </form>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</nav>--}}
 <div class="sb-preloader">
     <div class="sb-preloader-bg"></div>
     <div class="sb-preloader-body">
@@ -88,14 +44,6 @@
                     </ul>
                 </nav>
                 <div class="sb-buttons-frame">
-                    <!-- button -->
-{{--                    <div class="sb-btn sb-btn-2 sb-btn-gray sb-btn-icon sb-m-0 sb-btn-cart">--}}
-{{--                <span class="sb-icon">--}}
-{{--                  <img src="img/ui/icons/cart.svg" alt="icon">--}}
-{{--                </span>--}}
-{{--                        <i class="sb-cart-number">5</i>--}}
-{{--                    </div>--}}
-                    <!-- button end -->
                     <!-- menu btn -->
                     <div class="sb-menu-btn"><span></span></div>
                     <!-- info btn -->
@@ -113,8 +61,8 @@
             <ul class="sb-list sb-mb-30">
                 <li><b>Address:</b><span>Montréal, 1510 Rue Sauvé</span></li>
                 <li><b>Working hours:</b><span>09:00 - 23:00</span></li>
-                <li><b>Phone:</b><span>+02 (044) 756-X6-52</span></li>
-                <li><b>Email:</b><span>starbelly@mail.com</span></li>
+                <li><b>Phone:</b><span>+81 03(***)***</span></li>
+                <li><b>Email:</b><span>info@manabook.online</span></li>
             </ul>
             <div class="sb-ib-title-frame sb-mb-30">
                 <h4>Instagram</h4><i class="fas fa-arrow-down"></i>
@@ -129,35 +77,21 @@
             </ul>
             <hr>
             <div class="sb-ib-title-frame sb-mb-30">
-                <h4>Latest publications</h4><i class="fas fa-arrow-down"></i>
+                <h4>Latest Columns</h4><i class="fas fa-arrow-down"></i>
             </div>
-            <a href="publication-1.html" class="sb-blog-card sb-blog-card-sm sb-mb-30">
-                <div class="sb-cover-frame">
-                    <img src="img/blog/1.jpg" alt="cover">
-                </div>
-                <div class="sb-blog-card-descr">
-                    <h5 class="sb-mb-5">Simple Homemade Tomato Soup</h5>
-                    <p class="sb-text sb-text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero optio, sed expedita.</p>
-                </div>
-            </a>
-            <a href="publication-1.html" class="sb-blog-card sb-blog-card-sm sb-mb-30">
-                <div class="sb-cover-frame">
-                    <img src="img/blog/2.jpg" alt="cover">
-                </div>
-                <div class="sb-blog-card-descr">
-                    <h5 class="sb-mb-5">Thai Coconut Soup with Tofu and Rice</h5>
-                    <p class="sb-text sb-text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero optio, sed expedita.</p>
-                </div>
-            </a>
-            <a href="publication-1.html" class="sb-blog-card sb-blog-card-sm sb-mb-30">
-                <div class="sb-cover-frame">
-                    <img src="img/blog/3.jpg" alt="cover">
-                </div>
-                <div class="sb-blog-card-descr">
-                    <h5 class="sb-mb-5">21 Things You Should Absolutely Be Buying at ALDI</h5>
-                    <p class="sb-text sb-text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero optio, sed expedita.</p>
-                </div>
-            </a>
+            <p>coming soon...</p>
+{{--            ↓最新のコラムを計上↓--}}
+{{--            @foreach($topics as $topic)--}}
+{{--                <a href="{{route('topics.show', $topic->id)}}" class="sb-blog-card sb-blog-card-sm sb-mb-30">--}}
+{{--                    <div class="sb-cover-frame">--}}
+{{--                        <img src="{{ env('AWS_BUCKET').$topic->img}}" alt="{{$topic->title}}">--}}
+{{--                    </div>--}}
+{{--                    <div class="sb-blog-card-descr">--}}
+{{--                        <h5 class="sb-mb-5">{{$topic->title}}</h5>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
+{{--            @endforeach--}}
+{{--            ↑最新のコラムを計上↑--}}
         </div>
         <div class="sb-info-bar-footer">
             <ul class="sb-social">
@@ -168,72 +102,4 @@
             </ul>
         </div>
     </div>
-    <!-- info bar end -->
-{{--    <!-- minicart -->--}}
-{{--    <div class="sb-minicart">--}}
-{{--        <div class="sb-minicart-content">--}}
-{{--            <div class="sb-ib-title-frame sb-mb-30">--}}
-{{--                <h4>Your order.</h4><i class="fas fa-arrow-down"></i>--}}
-{{--            </div>--}}
-{{--            <a href="product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">--}}
-{{--                <div class="sb-cover-frame">--}}
-{{--                    <img src="img/menu/4.jpg" alt="product">--}}
-{{--                </div>--}}
-{{--                <div class="sb-card-tp">--}}
-{{--                    <h4 class="sb-card-title">Saumon Gravlax</h4>--}}
-{{--                    <div class="sb-price"><sub>$</sub> 9</div>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <a href="product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">--}}
-{{--                <div class="sb-cover-frame">--}}
-{{--                    <img src="img/menu/1.jpg" alt="product">--}}
-{{--                </div>--}}
-{{--                <div class="sb-card-tp">--}}
-{{--                    <h4 class="sb-card-title">Chevrefrit au miel</h4>--}}
-{{--                    <div class="sb-price"><sub>$</sub> 14</div>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <a href="product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">--}}
-{{--                <div class="sb-cover-frame">--}}
-{{--                    <img src="img/menu/2.jpg" alt="product">--}}
-{{--                </div>--}}
-{{--                <div class="sb-card-tp">--}}
-{{--                    <h4 class="sb-card-title">Croustillant de poisson</h4>--}}
-{{--                    <div class="sb-price"><sub>$</sub> 4</div>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <a href="product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">--}}
-{{--                <div class="sb-cover-frame">--}}
-{{--                    <img src="img/menu/3.jpg" alt="product">--}}
-{{--                </div>--}}
-{{--                <div class="sb-card-tp">--}}
-{{--                    <h4 class="sb-card-title">Stracciatella</h4>--}}
-{{--                    <div class="sb-price"><sub>$</sub> 11</div>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <a href="product.html" class="sb-menu-item sb-menu-item-sm sb-mb-15">--}}
-{{--                <div class="sb-cover-frame">--}}
-{{--                    <img src="img/menu/5.jpg" alt="product">--}}
-{{--                </div>--}}
-{{--                <div class="sb-card-tp">--}}
-{{--                    <h4 class="sb-card-title">Carpaccio de daurade</h4>--}}
-{{--                    <div class="sb-price"><sub>$</sub> 19</div>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--        <div class="sb-minicart-footer">--}}
-{{--            <!-- button -->--}}
-{{--            <a href="cart.html" class="sb-btn sb-btn-gray sb-btn-text">--}}
-{{--                <span>View order</span>--}}
-{{--            </a>--}}
-{{--            <!-- button end -->--}}
-{{--            <!-- button -->--}}
-{{--            <a href="checkout.html" class="sb-btn sb-btn-text">--}}
-{{--                <span>Checkout</span>--}}
-{{--            </a>--}}
-{{--            <!-- button end -->--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <!-- minicart end -->--}}
 </div>
-<!-- top bar end -->
