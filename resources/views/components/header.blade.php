@@ -1,19 +1,19 @@
-<div class="sb-preloader">
-    <div class="sb-preloader-bg"></div>
-    <div class="sb-preloader-body">
-        <div class="sb-loading">
-            <div class="sb-percent"><span class="sb-preloader-number" data-count="101">00</span><span>%</span></div>
-        </div>
-        <div class="sb-loading-bar">
-            <div class="sb-bar"></div>
-        </div>
-    </div>
-</div>
+{{--<div class="sb-preloader">--}}
+{{--    <div class="sb-preloader-bg"></div>--}}
+{{--    <div class="sb-preloader-body">--}}
+{{--        <div class="sb-loading">--}}
+{{--            <div class="sb-percent"><span class="sb-preloader-number" data-count="101">00</span><span>%</span></div>--}}
+{{--        </div>--}}
+{{--        <div class="sb-loading-bar">--}}
+{{--            <div class="sb-bar"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- preloader end -->
 <!-- click effect -->
-<div class="sb-click-effect"></div>
+{{--<div class="sb-click-effect"></div>--}}
 <!-- loader -->
-<div class="sb-load"></div>
+{{--<div class="sb-load"></div>--}}
 <div class="sb-top-bar-frame">
     <div class="sb-top-bar-bg"></div>
     <div class="container">

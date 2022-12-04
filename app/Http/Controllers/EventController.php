@@ -26,7 +26,7 @@ class EventController extends Controller
             ->whereIn('small_event_id', $smallEventIds)
             ->select('books.*')
             ->distinct()
-            ->get();
+            ->paginate(10);
 
         return view('events.show', compact('event', 'books'));
     }

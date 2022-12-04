@@ -57,12 +57,13 @@
         <div class="container">
             <div class="sb-group-title sb-mb-30">
                 <div class="sb-left sb-mb-30">
-                    <h2 class="sb-mb-30">So, We promise <span>to you</span> five Values.<br>
+                    <h2 class="sb-mb-30">We promise <span>to you</span><br>five Values.<br>
                         <span class="sb-h3">ーマナブックが提供する５つの価値</span>
                     </h2>
                     <p class="sb-text">Consectetur numquam poro nemo veniam<br>eligendi rem adipisci quo modi.</p>
                 </div>
                 <div class="sb-right sb-mb-30">
+                    <img src="{{ asset('img/ui/mvv.png') }}" alt="mvv" style="width: 100%">
                 </div>
             </div>
         </div>
@@ -75,7 +76,7 @@
                     <div class="sb-features-item sb-mb-60">
                         <div class="sb-number">01</div>
                         <div class="sb-feature-text">
-                            <h3 class="sb-mb-15">児童書に特化した、圧倒的な蔵書量</h3>
+                            <h3 class="sb-mb-15">児童書に特化した圧倒的蔵書</h3>
                             <p class="sb-text">マナブックは児童書に特化した書籍斡旋サービス。２千冊以上豊富な本棚から、お子様に最適な本に出逢えます。</p>
                         </div>
                     </div>
@@ -84,7 +85,7 @@
                     <div class="sb-features-item sb-mb-60">
                         <div class="sb-number">02</div>
                         <div class="sb-feature-text">
-                            <h3 class="sb-mb-15">教育のジャンルから逆引き可能</h3>
+                            <h3 class="sb-mb-15">教育ジャンルからの逆引き</h3>
                             <p class="sb-text">マナブックは教育を独自の視点で６つのカテゴリーに分類し、蔵書を振り分け。今与えたい学びから探すことができます。</p>
                         </div>
                     </div>
@@ -93,7 +94,7 @@
                     <div class="sb-features-item sb-mb-60">
                         <div class="sb-number">03</div>
                         <div class="sb-feature-text">
-                            <h3 class="sb-mb-15">お子様の成長段階に合わせて検索</h3>
+                            <h3 class="sb-mb-15">成長段階に合わせた検索</h3>
                             <p class="sb-text">マナブックは子供の成長段階を大きく４つに振り分け。お子様の発達要素ごとに、役立つ本を探すことができます。</p>
                         </div>
                     </div>
@@ -102,7 +103,7 @@
                     <div class="sb-features-item sb-mb-60">
                         <div class="sb-number">04</div>
                         <div class="sb-feature-text">
-                            <h3 class="sb-mb-15">最新のコラムから教育の流行を先取り</h3>
+                            <h3 class="sb-mb-15">最新コラムで流行を先取り</h3>
                             <p class="sb-text">マナブックは最新の教育テーマにも常にアンテナを張り、その時代で最も求められるテーマごとに絵本を紹介いたします。</p>
                         </div>
                     </div>
@@ -111,7 +112,7 @@
                     <div class="sb-features-item sb-mb-60">
                         <div class="sb-number">05</div>
                         <div class="sb-feature-text">
-                            <h3 class="sb-mb-15">直感的な操作性。滑らかな動作。</h3>
+                            <h3 class="sb-mb-15">直感的操作性と滑らかな動作</h3>
                             <p class="sb-text">マナブックはスマホでの閲覧をファーストに、滑らかで使いやすい機能を追求。絵本を買うまで、親御さんに余計な負担は与えません。</p>
                         </div>
                     </div>

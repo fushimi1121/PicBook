@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <!-- dynamic content -->
     <div id="sb-dynamic-content" class="sb-transition-fade">
@@ -52,7 +53,9 @@
                         <div class="sb-product-description sb-mb-90">
                             <div class="sb-price-frame sb-mb-30">
                                 <h3>{{$book->title}}</h3>
-                                <div class="sb-price"><sub>{{ $book->age }}</sub></div>
+                                <div class="sb-price">
+                                    <img src="{{ env('AWS_BUCKET')}}books/ageIcon/{{Config::get('age.ageIcon')[$book->age]}}.png" alt="{{$book->age}}" style=" height: 100%;">
+                                </div>
                             </div>
                             <p class="star-rate">{{ $starRate }}<span class="">（レビュー平均：{{ $reviewAvg }}点）</span></p>
                             <p class="sb-text sb-mb-30">{{ $book->body }}</p>
@@ -86,48 +89,9 @@
                                     <a href="#" target="_blanc" data-no-swup class="sb-download-btn mt-4">
                                         <img src="{{ asset('img/buttons/library_button.png')}}">
                                     </a>
-                                    蔵書検索のモーダル部分
-{{--                                    <search-library isbn="{{ $book->isbn_13 }}"></search-library>--}}
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                                            <input type="text" class="form-control" id="recipient-name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="message-text" class="col-form-label">Message:</label>
-                                                            <textarea class="form-control" id="message-text"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Send message</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-{{--                                    <script>--}}
-{{--                                        $('#exampleModal').on('show.bs.modal', function (event) {--}}
-{{--                                            const button = $(event.relatedTarget) // Button that triggered the modal--}}
-{{--                                            const recipient = button.data('whatever') // Extract info from data-* attributes--}}
-{{--                                            // // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).--}}
-{{--                                            // // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.--}}
-{{--                                            const modal = $(this)--}}
-{{--                                            modal.find('.modal-title').text('New message to ' + recipient)--}}
-{{--                                            modal.find('.modal-body input').val(recipient)--}}
-{{--                                        })--}}
-{{--                                    </script>--}}
+{{--                                    蔵書検索のモーダル部分--}}
+                                    <search-library isbn="{{ $book->isbn_13 }}"></search-library>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
                                 </div>
                             </div>
                         </div>
@@ -368,14 +332,14 @@
                 </div>
                 <div class="swiper-container sb-short-menu-slider-4i">
                     <div class="swiper-wrapper">
-                        @foreach($bookList as $book)
+                        @foreach($bookList as $sameAuthorBook)
                             <div class="swiper-slide">
                                 <div class="sb-menu-item">
-                                    <a href="{{route('books.show', $book->id)}}" class="sb-cover-frame">
-                                        <img src="{{ env('AWS_BUCKET')}}books/cover/{{$book->cover_img}}.png" alt="cover_img">
+                                    <a href="{{route('books.show', $sameAuthorBook->id)}}" class="sb-cover-frame">
+                                        <img src="{{ env('AWS_BUCKET')}}books/cover/{{$sameAuthorBook->cover_img}}.png" alt="cover_img">
                                     </a>
                                     <div class="sb-card-tp">
-                                        <h4 class="sb-card-title"><a href="shop-list-1.html">{{$book->title}}</a></h4>
+                                        <h4 class="sb-card-title"><a href="shop-list-1.html">{{$sameAuthorBook->title}}</a></h4>
                                         <div class="sb-price"><sub>$</sub> 14</div>
                                     </div>
                                 </div>
@@ -385,5 +349,35 @@
                 </div>
             </div>
         </section>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                    <p>ISBN:{{ $book->isbn_13 }}</p>
+                    <search-library isbn="{{ $book->isbn_13 }}"></search-library>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

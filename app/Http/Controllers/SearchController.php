@@ -35,11 +35,11 @@ class SearchController extends Controller
             foreach ($result['business_discovery']['media']['data'] as $item) {
                 $instagramItems[] = !empty($item['thumbnail_url']) ? [
                     'img' => $item['thumbnail_url'],
-                    'caption' => $item['caption'],
+//                    'caption' => $item['caption'],
                     'link' => $item['permalink'],
                 ] : [
                     'img' => $item['media_url'],
-                    'caption' => $item['caption'],
+//                    'caption' => $item['caption'],
                     'link' => $item['permalink'],
                 ];
             }

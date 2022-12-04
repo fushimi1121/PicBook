@@ -38,7 +38,7 @@ class GenreController extends Controller
             ->whereIN('small_genre_id', $smallGenreIds)
             ->select('books.*')
             ->distinct()
-            ->get();
+            ->paginate(10);
 
         return view('genres.show', compact('genre', 'books'));
     }

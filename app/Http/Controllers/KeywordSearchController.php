@@ -11,11 +11,9 @@ class KeywordSearchController extends Controller
     /**
      * 検索結果の一覧ページ
      * @param SearchKeywordRequest $request
-     * @return View
      */
-    public function index(SearchKeywordRequest $request):View
+    public function index(SearchKeywordRequest $request)
     {
-        #TODO: ②非同期処理によりbooksテーブルからキーワード表示する
         $keyword = $request->get('keyword');
 
         $query = Book::query();
@@ -37,7 +35,7 @@ class KeywordSearchController extends Controller
         $books = $query->with(['authors','publisher'])
             ->select('books.*')
             ->distinct()
-            ->get();
+            ->paginate(10);
 
 
         return view('books.index', compact('keyword','books'));

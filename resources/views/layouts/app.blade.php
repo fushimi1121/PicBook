@@ -58,7 +58,7 @@
 <!-- smooth scroll js -->
 <script src="{{asset('js/plugins/smooth-scroll.js')}}"></script>
 <!-- swup js -->
-<script src="{{asset('js/plugins/swup.min.js')}}"></script>
+{{--<script src="{{asset('js/plugins/swup.min.js')}}"></script>--}}
 <!-- swiper js -->
 <script src="{{asset('js/plugins/swiper.min.js')}}"></script>
 <!-- datepicker js -->

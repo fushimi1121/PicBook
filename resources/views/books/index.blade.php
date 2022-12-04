@@ -18,12 +18,14 @@
                 @foreach($books as $book)
                     <div class="col-lg-3">
                         <div class="sb-menu-item sb-mb-30">
-                            <a href="{{route('books.show', $book->id)}}" class="sb-cover-frame">
-                                <img src="{{ env('AWS_BUCKET').$book->cover_img}}.png" alt="cover_img">
+                            <a href="{{route('books.show',$book->id)}}" class="sb-cover-frame">
+                                <img src="{{ env('AWS_BUCKET')}}books/cover/{{$book->cover_img}}.png" alt="{{$book->title}}">
                             </a>
                             <div class="sb-card-tp">
                                 <h4 class="sb-card-title"><a href="product.html">{{$book->title}}</a></h4>
-                                <div class="sb-price"></div>
+                                <div class="sb-price">
+                                    <img src="{{ env('AWS_BUCKET')}}books/ageIcon/{{Config::get('age.ageIcon')[$book->age]}}.png" alt="{{$book->age}}" style=" height: 100%;">
+                                </div>
                             </div>
                             <div class="sb-description">
                                 <p class="sb-text sb-mb-15">
@@ -64,6 +66,7 @@
                     </div>
                 @endforeach
             </div>
+            {{ $books->links() }}
         </div>
     </section>
 @endsection

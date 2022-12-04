@@ -1,5 +1,4 @@
 <template>
-
   <div>
     都道府県：<input type="text" v-model="pref"><br>
     市区町村：<input type="text" v-model="city"><br>
@@ -44,7 +43,7 @@ export default {
             return response.json()
           })
           .then((data) => {
-            for (const e of data) {
+              for (const e of data) {
               //ユニークなシステムid配列を作成
               if (!this.systemIds.includes(e.systemid)) {
                 this.systemIds.push(e.systemid)
@@ -52,6 +51,7 @@ export default {
             }
           })
           .then(() => {
+              console.log(`https://api.calil.jp/check?appkey=78b83c7835eed808184208dd89d2663c&isbn=${isbn}&systemid=${this.systemIds.join(',')}&format=json&callback=no`)
             //図書館一覧からユニークのシステムIDを取得して再検索 例：systemid=Tokyo_Edogawa,Aomori_Pref
             fetch(`https://api.calil.jp/check?appkey=78b83c7835eed808184208dd89d2663c&isbn=${isbn}&systemid=${this.systemIds.join(',')}&format=json&callback=no`)
                 .then((response) => {

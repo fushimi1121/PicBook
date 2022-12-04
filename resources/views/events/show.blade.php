@@ -61,18 +61,20 @@
             <div class="row">
                 @foreach($books as $book)
                     <div class="col-lg-3">
-                        <a data-fancybox="menu" href="{{route('books.show',$book->id)}}" class="sb-menu-item sb-mb-30">
+                        <a href="{{route('books.show',$book->id)}}" class="sb-menu-item sb-mb-30">
                             <div class="sb-cover-frame">
                                 <img src="{{ env('AWS_BUCKET')}}books/cover/{{$book->cover_img}}.png" alt="cover_img">
                             </div>
                             <div class="sb-card-tp">
                                 <h4 class="sb-card-title">{{$book->title}}</h4>
-                                <div class="sb-price">▲</div>
+                                <div class="sb-price">
+                                    <img src="{{ env('AWS_BUCKET')}}books/ageIcon/{{Config::get('age.ageIcon')[$book->age]}}.png" alt="{{$book->age}}" style=" height: 100%;">
+                                </div>
                             </div>
                             <div class="sb-description">
                                 <label class="sb-text sb-mb-15">
                                     著：@foreach($book->authors as $author)
-                                        {{ $author->name }} /
+                                        {{ $author->name }}
                                     @endforeach
                                 </label>
                                 <label class="sb-text sb-mb-15">

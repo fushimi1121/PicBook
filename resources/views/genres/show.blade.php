@@ -79,13 +79,15 @@
                 <div class="row">
                     @foreach($books as $book)
                         <div class="col-lg-3">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/1.jpg" class="sb-menu-item sb-mb-30">
+                            <a href="{{route('books.show',$book->id)}}" class="sb-menu-item sb-mb-30">
                                 <div class="sb-cover-frame">
                                     <img src="{{ env('AWS_BUCKET')}}books/cover/{{$book->cover_img}}.png" alt="{{$book->title}}">
                                 </div>
                                 <div class="sb-card-tp">
                                     <h4 class="sb-card-title">{{$book->title}}</h4>
-                                    <div class="sb-price">▲</div>
+                                    <div class="sb-price">
+                                        <img src="{{ env('AWS_BUCKET')}}books/ageIcon/{{Config::get('age.ageIcon')[$book->age]}}.png" alt="{{$book->age}}" style=" height: 100%;">
+                                    </div>
                                 </div>
                                 <div class="sb-description">
                                     <label class="sb-text sb-mb-15">
@@ -109,13 +111,7 @@
                     @endforeach
                 </div>
                 <div>
-                    <ul class="sb-pagination">
-                        <li class="sb-active"><a href="#.">1</a></li>
-                        <li><a href="#.">2</a></li>
-                        <li><a href="#.">3</a></li>
-                        <li><a href="#.">4</a></li>
-                        <li><a href="#.">...</a></li>
-                    </ul>
+                    {{ $books->links() }}
                 </div>
             </div>
         </section>
