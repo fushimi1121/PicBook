@@ -32,22 +32,24 @@
 <body>
 <div class="sb-app">
     <!-- preloader -->
-{{--    <div class="sb-preloader">--}}
-{{--        <div class="sb-preloader-bg"></div>--}}
-{{--        <div class="sb-preloader-body">--}}
-{{--            <div class="sb-loading">--}}
-{{--                <div class="sb-percent"><span class="sb-preloader-number" data-count="101">00</span><span>%</span></div>--}}
-{{--            </div>--}}
-{{--            <div class="sb-loading-bar">--}}
-{{--                <div class="sb-bar"></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="sb-preloader">
+        <div class="sb-preloader-bg"></div>
+        <div class="sb-preloader-body">
+            <div class="sb-loading">
+                <div class="sb-percent"><span class="sb-preloader-number" data-count="101">00</span><span>%</span></div>
+            </div>
+            <div class="sb-loading-bar">
+                <div class="sb-bar"></div>
+            </div>
+        </div>
+    </div>
     @component('components.header')
     @endcomponent
 
     <main class="py-4" id="app">
+        <div id="sb-dynamic-content" class="sb-transition-fade">
         @yield('content')
+        </div>
     </main>
 
     @component('components.footer')
@@ -58,7 +60,7 @@
 <!-- smooth scroll js -->
 <script src="{{asset('js/plugins/smooth-scroll.js')}}"></script>
 <!-- swup js -->
-{{--<script src="{{asset('js/plugins/swup.min.js')}}"></script>--}}
+<script src="{{asset('js/plugins/swup.min.js')}}"></script>
 <!-- swiper js -->
 <script src="{{asset('js/plugins/swiper.min.js')}}"></script>
 <!-- datepicker js -->

@@ -80,20 +80,13 @@
                                 <label class="sb-text sb-mb-15">
                                     出版社：{{$book->publisher->name}}<br>
                                 </label>
-                                <p class="star-rate">{{ $book->starRate }}<span>（レビュー平均：{{ $book->reviewAvg }}点）</span></p>
                             </div>
                         </a>
                     </div>
                 @endforeach
             </div>
             <div>
-                <ul class="sb-pagination">
-                    <li class="sb-active"><a href="#.">1</a></li>
-                    <li><a href="#.">2</a></li>
-                    <li><a href="#.">3</a></li>
-                    <li><a href="#.">4</a></li>
-                    <li><a href="#.">...</a></li>
-                </ul>
+                {{ $books->links() }}
             </div>
         </div>
     </section>

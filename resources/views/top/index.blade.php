@@ -30,22 +30,22 @@
 </head>
 <body>
 <div class="sb-app">
-{{--    <div class="sb-preloader">--}}
-{{--        <div class="sb-preloader-bg"></div>--}}
-{{--        <div class="sb-preloader-body">--}}
-{{--            <div class="sb-loading">--}}
-{{--                <div class="sb-percent"><span class="sb-preloader-number" data-count="101">00</span><span>%</span></div>--}}
-{{--            </div>--}}
-{{--            <div class="sb-loading-bar">--}}
-{{--                <div class="sb-bar"></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="sb-preloader">
+        <div class="sb-preloader-bg"></div>
+        <div class="sb-preloader-body">
+            <div class="sb-loading">
+                <div class="sb-percent"><span class="sb-preloader-number" data-count="101">00</span><span>%</span></div>
+            </div>
+            <div class="sb-loading-bar">
+                <div class="sb-bar"></div>
+            </div>
+        </div>
+    </div>
     <!-- preloader end -->
     <!-- click effect -->
-{{--    <div class="sb-click-effect"></div>--}}
+    <div class="sb-click-effect"></div>
     <!-- loader -->
-{{--    <div class="sb-load"></div>--}}
+    <div class="sb-load"></div>
     <div class="sb-top-bar-frame">
         <div class="sb-top-bar-bg"></div>
         <div class="container">
@@ -59,14 +59,59 @@
                     <nav id="sb-dynamic-menu" class="sb-menu-transition">
                         <ul class="sb-navigation">
                             <li class="sb-active sb-has-children">
-                                <a href="{{ route('search.index')}} #genre">ジャンルで探す</a>
+                                <a href="#educationGenre" id="egButton">ジャンルで探す</a>
                             </li>
+                            <script>
+                                window.addEventListener('load', (event) => {
+
+                                    document.getElementById('egButton').addEventListener('click', () => {
+
+                                        // 表示位置を取得
+                                        const educate = document.getElementById('educationGenre');
+                                        const content_position = educate.getBoundingClientRect();
+
+                                        // 移動
+                                        window.scrollTo( 1, content_position.top);
+
+                                    });
+                                });
+                            </script>
                             <li class="sb-has-children">
-                                <a href="{{ route('search.index')}} #Growth">年齢で探す</a>
+                                <a href="#lifeStage" id="lsButton">年齢で探す</a>
                             </li>
+                            <script>
+                                window.addEventListener('load', (event) => {
+
+                                    document.getElementById('lsButton').addEventListener('click', () => {
+
+                                        // 表示位置を取得
+                                        const life = document.getElementById('lifeStage');
+                                        const content_position = life.getBoundingClientRect();
+
+                                        // 移動
+                                        window.scrollTo( 1, content_position.top);
+
+                                    });
+                                });
+                            </script>
                             <li class="sb-has-children">
-                                <a href="{{ route('search.index')}} #columns">コラムを読む</a>
+                                <a href="#latestColumn" id="lcButton">コラムを読む</a>
                             </li>
+                            <script>
+                                window.addEventListener('load', (event) => {
+
+                                    document.getElementById('lcButton').addEventListener('click', () => {
+
+                                        // 表示位置を取得
+                                        const column = document.getElementById('latestColumn');
+                                        const content_position = column.getBoundingClientRect();
+
+                                        // 移動
+                                        window.scrollTo( 1, content_position.top);
+
+                                    });
+                                });
+                            </script>
                             <li class="sb-has-children" style="display: flex; justify-content: center;">
                                 <form method="GET" action="{{ route('keywordSearch.index') }}" class="search_container">
                                     <input type="text" size="25" placeholder="　キーワード検索" aria-label="Search" name="keyword">
@@ -103,7 +148,7 @@
                 <ul class="sb-instagram sb-mb-30">
                     @foreach ($instagramItems as $instagramItem)
                         <li>
-                            <a href="https://www.instagram.com/manabook.online/">
+                            <a href=".#">
                                 <img src="{{ $instagramItem['img'] }}">
                             </a>
                         </li>
@@ -123,14 +168,6 @@
                         </div>
                     </a>
                 @endforeach
-            </div>
-            <div class="sb-info-bar-footer">
-                <ul class="sb-social">
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                </ul>
             </div>
         </div>
     </div>
@@ -220,7 +257,7 @@
         <!-- サービス概要　終わり -->
         <hr>
         <!-- ジャンルから選ぶ　始まり -->
-        <section class="sb-p-0-60 mt-5">
+        <section class="sb-p-0-60 mt-5" id="educationGenre">
             <div class="container">
                 <div class="sb-group-title sb-mb-30">
                     <div class="sb-left sb-mb-30">
@@ -230,7 +267,7 @@
                     </div>
                     <div class="sb-right sb-mb-30">
                         <!-- button -->
-                        <a href="shop-1.html" class="sb-btn sb-m-0">
+                        <a href=".#" class="sb-btn sb-m-0">
                             <span class="sb-icon">
                                 <img src="img/ui/icons/arrow.svg" alt="icon">
                             </span>
@@ -249,8 +286,8 @@
                                     </div>
                                     <div class="sb-card-descr">
                                         <h3 class="sb-mb-10">{{$genre->name_en}}</h3>
-                                        <h4 class="sb-mb-10">〜{{$genre->name_ja}}〜</h4>
-                                        <p class="sb-text">{{ $genre->summary }}</p>
+                                        <h4 class="sb-mb-10">- {{$genre->name_ja}} -</h4>
+                                        <p class="sb-text">{{$genre->summary}}</p>
                                     </div>
                                 </div>
                             </a>
@@ -261,13 +298,23 @@
         </section>
         <!-- ジャンルから選ぶ　終わり -->
         <!-- 成長に合わせた本を探す 始まり -->
-        <section class="sb-p-0-60">
+        <section class="sb-p-0-60" id="lifeStage">
             <div class="container">
                 <div class="sb-group-title sb-mb-30">
                     <div class="sb-left sb-mb-30">
                         <h2 class="mb-1" id="Growth">Growth Stage</h2>
                         <h6 class="sb-mb-25">ー発達ステージに合わせて探す</h6>
                         <p class="sb-text">子どもは成長に合わせて色んなことができるようになります。我が子の発達段階に応じて必要な本をお求めください。</p>
+                    </div>
+                    <div class="sb-right sb-mb-30">
+                        <!-- button -->
+                        <a href=".#" class="sb-btn sb-m-0">
+                            <span class="sb-icon">
+                                <img src="img/ui/icons/arrow.svg" alt="icon">
+                            </span>
+                            <span>What's Growth Stage</span>
+                        </a>
+                        <!-- button end -->
                     </div>
                 </div>
                 <div class="row">
@@ -301,7 +348,7 @@
         <hr>
         <!-- 成長に合わせた本を探す　終わり -->
         <!-- 絵本に関するコラム（直近５記事）始まり -->
-        <section class="sb-popular sb-p-60-30">
+        <section class="sb-popular sb-p-60-30" id="latestColumn">
             <div class="sb-bg-3">
             </div>
             <div class="container">
@@ -356,12 +403,6 @@
                     <!-- logo img -->
                     <img src="{{asset('img/ui/manabook_logo.png')}}" alt="manabook">
                 </a>
-                <ul class="sb-social">
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                </ul>
                 <div class="sb-copy">&copy; late 2022 Manabook. All Rights Reserved.</div>
             </div>
         </div>
@@ -389,6 +430,7 @@
 <script src="{{asset('js/plugins/bootstrap.min.js')}}"></script>
 <!-- manabook js -->
 <script src="{{asset('js/main.js')}}"></script>
+{{--追加スクリプト--}}
 
 </body>
 </html>

@@ -29,9 +29,7 @@
                             </div>
                             <div class="sb-description">
                                 <p class="sb-text sb-mb-15">
-                                    ★★★★☆{{ $book->starRate }}<span class="">（レビュー平均：4.7{{ $book->reviewAvg }}点）
-                                        <br>
-                                    著：
+                                    著者：
                                     <span>
                                         @foreach($book->authors as $author)
                                             {{$author->name}}
@@ -53,7 +51,7 @@
                                 </a>
                                 <!-- button end -->
                                 <!-- button -->
-                                <a href="https://www.amazon.co.jp/gp/search?ie=UTF8&tag=manabook0a-22&linkCode=ur2&linkId=55ed00a5c9fbfd9eeb82a6a4918bd593&camp=247&creative=1211&index=books&keywords={{$book->title}}" class="sb-btn sb-atc">
+                                <a href="https://www.amazon.co.jp/gp/search?ie=UTF8&tag=manabook0a-22&linkCode=ur2&linkId=55ed00a5c9fbfd9eeb82a6a4918bd593&camp=247&creative=1211&index=books&keywords={{$book->title}}" target="_blanc" data-no-swup class="sb-btn sb-atc">
                                 <span class="sb-icon">
                                     <img src="img/ui/icons/cart.svg" alt="icon">
                                 </span>

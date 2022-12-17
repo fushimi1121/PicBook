@@ -36,12 +36,6 @@
                     <!-- logo img -->
                     <img src="{{asset('img/ui/manabook_logo.png')}}" alt="manabook">
                 </a>
-                <ul class="sb-social">
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                    <li><a href="#."><i class="far fa-circle"></i></a></li>
-                </ul>
                 <div class="sb-copy">&copy; late 2022 Manabook. All Rights Reserved.</div>
             </div>
         </div>
